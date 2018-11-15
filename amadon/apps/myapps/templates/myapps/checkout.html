@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<title>Checkout</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+</head>
+<body>
+	<div class="container">
+		<h2>Thank-You for your business!</h2>
+		<p>We charged your credit card for ${{request.session.spent}} </p>
+		<p>You have ordered {{request.session.items}} items so far and spent ${{request.session.total}} with Amadon.com!</p>
+		<p></p>
+		<a href="/">Go back</a>
+	</div>
+</body>
+</html>

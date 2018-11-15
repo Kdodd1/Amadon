@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Amadon</title>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<style type="text/css">
+	#Select1{
+		display: inline-block;
+		width: 70px;
+	}
+</style>
+</head>
+<body>
+	<div class="container">
+		<h1>Amadon Store!</h1>
+		<table class="table">
+		  <thead>
+		    <tr>
+		      <th scope="col">Item</th>
+		      <th scope="col">Price</th>
+		      <th scope="col">Action</th>
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	{% for item in items%}
+		    <tr>
+		      <td>{{item.item}}</td>
+		      <td>${{item.price}}</td>
+		      <td>
+		      	<form action='/amadon/buy' method='POST'>
+		      		{% csrf_token %}
+				  <div class="form-group">
+				    <label for="Select1"></label>
+				    <select class="form-control" name="quantity" id="Select1">
+				      <option>1</option>
+				      <option>2</option>
+				      <option>3</option>
+				      <option>4</option>
+				      <option>5</option>
+				    </select>
+				  </div>
+				  <input type="hidden" name="product_id" value="{{item.id}}">
+				  <button type="submit" class="btn btn-primary">Buy!</button>
+  				</form>
+			   </td>
+		    </tr>
+		    {% endfor %}
+		  </tbody>
+	</table>
+	</div>
+</body>
+</html>
